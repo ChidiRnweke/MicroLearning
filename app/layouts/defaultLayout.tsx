@@ -3,7 +3,7 @@ import Footer from "~/components/microlearning/navigation/footer";
 import NavBar from "~/components/microlearning/navigation/navBar";
 import { AppSidebar } from "~/components/microlearning/navigation/sideBar";
 import { SidebarProvider, SidebarTrigger } from "~/components/ui/sidebar";
-import { ModeToggle } from "~/components/microlearning/dark-mode-toggle";
+import { DarkModeToggle } from "~/components/microlearning/dark-mode-toggle";
 
 export default function DefaultLayout() {
   return (
@@ -13,7 +13,7 @@ export default function DefaultLayout() {
         <NavBar>
           <div className="flex items-center space-x-8 gap-x-4">
             <SidebarTrigger />
-            <ModeToggle className="mr-4" />
+            <DarkModeToggle className="mr-4" />
           </div>
         </NavBar>
         <main className="my-10">
