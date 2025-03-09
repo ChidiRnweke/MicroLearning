@@ -20,14 +20,37 @@ const initialState: ThemeProviderState = {
 
 const ThemeProviderContext = createContext<ThemeProviderState>(initialState);
 
+const getLocalStorageValue = (key: string, fallback: any) => {
+  if (typeof window === "undefined") {
+    return fallback;
+  }
+  try {
+    const item = window.localStorage.getItem(key);
+    return item ? JSON.parse(item) : fallback;
+  } catch (error) {
+    console.error("Local storage error:", error);
+    return fallback;
+  }
+};
+
+const setLocalStorageValue = (key: string, value: any) => {
+  if (typeof window !== "undefined") {
+    try {
+      window.localStorage.setItem(key, JSON.stringify(value));
+    } catch (error) {
+      console.error("Local storage error:", error);
+    }
+  }
+};
+
 export function ThemeProvider({
   children,
   defaultTheme = "system",
   storageKey = "vite-ui-theme",
   ...props
 }: ThemeProviderProps) {
-  const [theme, setTheme] = useState<Theme>(
-    () => (localStorage.getItem(storageKey) as Theme) || defaultTheme
+  const [theme, setTheme] = useState<Theme>(() =>
+    getLocalStorageValue(storageKey, defaultTheme)
   );
 
   useEffect(() => {
@@ -51,7 +74,7 @@ export function ThemeProvider({
   const value = {
     theme,
     setTheme: (theme: Theme) => {
-      localStorage.setItem(storageKey, theme);
+      setLocalStorageValue(storageKey, theme);
       setTheme(theme);
     },
   };
