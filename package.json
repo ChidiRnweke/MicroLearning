@@ -1,32 +1,44 @@
 {
   "name": "microlearning",
   "private": true,
-  "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview",
-    "check": "svelte-check --tsconfig ./tsconfig.json",
-    "preinstall": "npx only-allow pnpm"
-  },
-  "devDependencies": {
-    "@sveltejs/vite-plugin-svelte": "^3.0.2",
-    "@tsconfig/svelte": "^5.0.2",
-    "autoprefixer": "^10.4.17",
-    "flowbite": "^2.3.0",
-    "flowbite-svelte": "^0.44.23",
-    "flowbite-svelte-icons": "^1.4.0",
-    "postcss": "^8.4.35",
-    "svelte": "^4.2.10",
-    "svelte-check": "^3.6.3",
-    "tailwindcss": "^3.4.1",
-    "tslib": "^2.6.2",
-    "typescript": "^5.2.2",
-    "vite": "^5.1.0",
-    "vite-plugin-tailwind-purgecss": "^0.2.0"
+    "build": "react-router build",
+    "dev": "react-router dev",
+    "start": "react-router-serve ./build/server/index.js",
+    "typecheck": "react-router typegen && tsc"
   },
   "dependencies": {
-    "dark-mode-toggle-component": "^1.1.2"
+    "@heroicons/react": "^2.2.0",
+    "@radix-ui/react-dialog": "^1.1.6",
+    "@radix-ui/react-dropdown-menu": "^2.1.6",
+    "@radix-ui/react-navigation-menu": "^1.2.5",
+    "@radix-ui/react-separator": "^1.1.2",
+    "@radix-ui/react-slot": "^1.1.2",
+    "@radix-ui/react-toggle": "^1.1.2",
+    "@radix-ui/react-tooltip": "^1.1.8",
+    "@react-router/node": "^7.3.0",
+    "@react-router/serve": "^7.3.0",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "isbot": "^5.1.17",
+    "lucide-react": "^0.479.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-router": "^7.3.0",
+    "tailwind-merge": "^3.0.2",
+    "tailwindcss-animate": "^1.0.7"
+  },
+  "devDependencies": {
+    "@react-router/dev": "^7.3.0",
+    "@tailwindcss/vite": "^4.0.0",
+    "@types/node": "^20",
+    "@types/react": "^19.0.1",
+    "@types/react-dom": "^19.0.1",
+    "react-router-devtools": "^1.1.0",
+    "tailwindcss": "^4.0.0",
+    "typescript": "^5.7.2",
+    "vite": "^5.4.11",
+    "vite-tsconfig-paths": "^5.1.4"
   }
 }
