@@ -22,17 +22,17 @@ function LearningCard({
 }: React.PropsWithChildren<LearningCardProps>) {
   const link = `/${title.toLowerCase().replace(" ", "-")}`;
   return (
-    <Card>
-      <CardHeader className="flex justify-between flex-row">
+    <Card className="px-2">
+      <CardHeader className="flex justify-between flex-row pt-2">
         <div>
-          <CardTitle>{title}</CardTitle>
+          <CardTitle className="text-accent-foreground">{title}</CardTitle>
           <CardDescription>{description}</CardDescription>
         </div>
         <a href={link} className="text-primary">
           <ArrowTopRightOnSquareIcon className="w-6 h-6" />
         </a>
       </CardHeader>
-      <CardContent>{text}</CardContent>
+      <CardContent className="pb-2">{text}</CardContent>
     </Card>
   );
 }

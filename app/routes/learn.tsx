@@ -1,5 +1,6 @@
-import { LearningCard } from "~/components/microlearning/home/LearningCard";
 import type { Route } from "./+types/learn";
+import HeroSection from "~/components/microlearning/home/herosection";
+import LearningPathSection from "~/components/microlearning/home/learningPathSection";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -65,82 +66,23 @@ const webDevelopmentModuleList = [
   },
 ];
 
-function HeroSection() {
-  return (
-    <header className="lg:py-20 text-center p-4 mb-8 bg-cover bg-[url('triangles.svg')]">
-      <h1 className="lg:text-6xl text-4xl font-extrabold my-8">
-        Micro Learning
-      </h1>
-      <p className="text-2xl">
-        Welcome to Micro Learning! Learn a lot, in
-        <span className="text-accent-foreground"> byte sized</span> chunks.
-      </p>
-    </header>
-  );
-}
-
-function MachineLearningModules() {
-  return (
-    <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-      {machineLearningModuleList.map((module) => (
-        <LearningCard
-          key={module.title}
-          title={module.title}
-          description={module.description}
-          text={module.text}
-        />
-      ))}
-    </div>
-  );
-}
-
-function PythonModules() {
-  return (
-    <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-      {pythonModuleList.map((module) => (
-        <LearningCard
-          key={module.title}
-          title={module.title}
-          description={module.description}
-          text={module.text}
-        />
-      ))}
-    </div>
-  );
-}
-
-function WebDevelopmentModules() {
-  return (
-    <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-      {webDevelopmentModuleList.map((module) => (
-        <LearningCard
-          key={module.title}
-          title={module.title}
-          description={module.description}
-          text={module.text}
-        />
-      ))}
-    </div>
-  );
-}
-
 export default function LearningModules() {
   return (
     <div>
       <HeroSection />
       <div className="flex flex-col gap-y-8">
-        <section className="flex flex-col gap-y-8">
-          <h1 className="text-3xl font-bold">Machine Learning</h1>
-          <MachineLearningModules />
-        </section>
-        <section className="flex flex-col gap-y-8">
-          <h1 className="text-3xl font-bold">Python</h1>
-          <PythonModules />
-        </section>
-        <section className="flex flex-col gap-y-8">
-          <h1 className="text-3xl font-bold">Web Development</h1>
-          <WebDevelopmentModules />
-        </section>
+        <LearningPathSection
+          moduleTitle="Machine Learning"
+          moduleList={machineLearningModuleList}
+        />
+        <LearningPathSection
+          moduleTitle="Python"
+          moduleList={pythonModuleList}
+        />
+        <LearningPathSection
+          moduleTitle="Web Development"
+          moduleList={webDevelopmentModuleList}
+        />
       </div>
     </div>
   );
